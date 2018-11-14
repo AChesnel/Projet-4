@@ -121,7 +121,7 @@ class ArticleManager {
 		$req->execute(array($id));
 	}
 
-	public function reportComment($	id)
+	public function reportComment($id)
 	{
 		$db = $this->db;
 
