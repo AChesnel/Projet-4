@@ -107,4 +107,9 @@ class FrontendUser {
 
 		require('view/frontend/utilisateurUnBanConfirme.php');
 	}
+
+	public function mentionsLegales()
+	{
+		require('view/frontend/mentionsLegales.php');
+	}
 }

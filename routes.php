@@ -17,6 +17,7 @@ $routes = array(
 	'deconnexion'            => array('controller' => 'FrontendUser', 'method' => 'deconnexion'),
 	'nouveauCompte'          => array('controller' => 'FrontendUser', 'method' => 'nouveauCompte'),
 	'createAccount'          => array('controller' => 'FrontendUser', 'method' => 'createAccount'),
+	'mentionsLegales'		 => array('controller' => 'FrontendUser', 'method' => 'mentionsLegales'),
 	'espaceAdmin'            => array('controller' => 'FrontendUser', 'method' => 'espaceAdmin', 'firewall' => 1),
 	'gestionUtilisateurs'    => array('controller' => 'FrontendUser', 'method' => 'gestionUtilisateurs', 'firewall' => 1),
 	'supprimerUtilisateur'   => array('controller' => 'FrontendUser', 'method' => 'supprimerUtilisateur', 'firewall' => 1),

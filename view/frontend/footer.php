@@ -1,4 +1,5 @@
 	<footer id="footer">
+		<a href="http://localhost/projet4/index.php?action=mentionsLegales">Mentions légales</a>
 	</footer>
 </body>
 
