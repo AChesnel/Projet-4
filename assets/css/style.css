@@ -56,9 +56,10 @@ nav {
 }
 
 #blocSite {
-	margin-top: 72px;
+	margin-top: 20px;
 	text-align: center;
 	padding-left: 8px;
+	font-family: Poly, arial;
 }
 
 #présentation {
@@ -116,10 +117,43 @@ nav {
 }
 
 #blocConnexion {
+	height: auto;
+	margin-top: 20px;
+	width: 35%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#backgroundBlocConnexion {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #e6e6e6;
+	height: 180px;
+	padding-top: 1px;
+	margin-top: 15px;
+	border: 1px ridge #bcbcbc;
+}
+
+.elementForm {
+	display: block;
+	margin-bottom: 15px;
+	height: 25px;
 	width: 100%;
-	height: 200px;
-	margin-top: 76px;
-	padding-left: 8px;
+	border: 1px solid #c2bfbf;
+	border-radius: 5px;
+}
+
+.boutonEnvoyer {
+	cursor: pointer;
+	width: 20%;
+	height: 32px;
+	color: white;
+	background-color: #848484e6;
+}
+
+.boutonEnvoyer:hover {
+	background-color: #120fb4e6;
 }
 
 .formInscription {
