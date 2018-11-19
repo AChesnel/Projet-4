@@ -59,13 +59,7 @@
 						}).done(function(msg) {
   							
   									$('#message').html(msg);
-  							
-
-
-
   						});
-
-
 		})
 	</script>
 
