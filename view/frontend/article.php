@@ -47,19 +47,16 @@
 	</div>
 
 	<script type="text/javascript">
-		// ecoute un event sur une classe
 		$('.buttonSignaler').click(function() {
 			
-				// recupère l'id sur lequel tu as cliqué
 				let id = $(this).attr('id');	
 
 				$.ajax({
-							// exécute la requete HTTP 
   							method : "POST",
   							url: "http://localhost/projet4/index.php?action=signalerCommentaire",
   							data: { comment_id: id }
 							
-						}).done(function(msg) { // il exécute une action après le retour de la requete avec les data 
+						}).done(function(msg) {
   							
   									$('#message').html(msg);
   							

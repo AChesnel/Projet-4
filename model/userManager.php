@@ -55,39 +55,20 @@ class UserManager {
 	}
 	public function hasPostDataValid($values)
     {
-    	//Vérification si le nom d'utillisateur existe déjà.
-
-
-    	// Je recherche dans la bdd si le nom d'utilisateur existe déjà. -> Si il existe déjà, je renvoie une erreur, et la fonction s'arrête ici.
 
     	$user = $this->getUserByUsername($values['identifiant']);
     	if($user) {
     		return "Nom d'utilisateur déjà existant";
     	} 
 
-    	// Si il n'est pas déjà existant dans la bdd, la fonction continue, et vérifie les autres paramètres.
-
-
-    	//Vérification de l'email
-
-    	// Je vérifie si l'email est déjà existant dans la base de donéees -> Si il existe déjà, je renvoie une erreur et la fonction s'arrête ici.
-
-    	// Si il n'est pas déjà existant, la fonction continue, et vérifie les autre sparamètres.
-
     	$user = $this->getUserByEmail($values['email']);
     	if($user) {
     		return "E-mail déjà existant";
     	}
 
-    	//Vérification des deux mots de passe.
-
-    	// Si les deux mots de passes saisis ne sont pas identiques, la fonction s'arrête et renvoie une erreur.
-
     	if ($values['password'] != $values['confirm']) {
     		return "Les mots de passe ne sont pas identiques";
     	}
-
-    	// Si les deux mots de passe saisis sont identiques alors la fonction s'achève sans renvoyer d'erreur, elle renvoie true.
 
     	return true;
     }

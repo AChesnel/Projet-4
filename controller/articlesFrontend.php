@@ -130,12 +130,9 @@ class FrontendArticles {
 
 		echo $comment_id;
 
-		//Aller dans la base de données et voir si le commentaire à déjà signalé.
 		$manager = new ArticleManager();
 
 		$verificationReport = $manager->isCommentReportExists($comment_id, $user_report);
-
-		// Selon le retour de la fonction (True ou false), on saura si le commentaire à déjà été signalé par la même personne.
 
 		if($verificationReport === true) {
 			echo "Vous avez déjà signalé ce commentaire";

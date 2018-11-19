@@ -32,7 +32,6 @@ class FrontendUser {
 			
 
 			if($user = $manager->getUserByUsername($identifiant)) {
-				// On compare le mot de passe envoyé à celui qui correspond au mot de passe de l'user
 	 
 				if (password_verify($password, $user['password'])) {
 					$_SESSION['logged'] = true;
