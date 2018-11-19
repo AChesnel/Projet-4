@@ -133,6 +133,24 @@ nav {
 	padding-top: 1px;
 	margin-top: 15px;
 	border: 1px ridge #bcbcbc;
+	border-radius: 30px;
+}
+
+#blocInscription {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#backgroundBlocInscription {
+	background-color: #e6e6e6;
+	height: 350px;
+	width: 40%;
+	margin-left: 1%;
+	border: 1px ridge #bcbcbc;
+	border-radius: 30px;
 }
 
 .elementForm {
@@ -154,10 +172,6 @@ nav {
 
 .boutonEnvoyer:hover {
 	background-color: #120fb4e6;
-}
-
-.formInscription {
-	margin-bottom: 5px;
 }
 
 .blank {
