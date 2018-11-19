@@ -1,8 +1,13 @@
 <?php include('header.php');?>
 
 	<div id="blocSite">
-		<div id="blocArticle">
+		<div id="headerArticle">
+			<img src="assets/images/imgArticle">
+			<div id="overlayImgArticle">
 				<h1 id="titreArticle"> <?= htmlspecialchars($article['title']) ?> </h1>
+			</div>
+		</div>
+		<div id="blocArticle">
 		        <?= ($article['content']) ?>
 		        <div id="dateArticle">Écrit le : <?= htmlspecialchars($article['creation_date_fr']) ?></div>
 		</div>
