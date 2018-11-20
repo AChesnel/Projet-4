@@ -30,13 +30,13 @@
 							<?= htmlspecialchars($commentaire['author']) ?>	
 						</span>
 						<?php if(isset($_SESSION['logged']) === true) : ?>
-							<span id="<?= $commentaire['id'];?>" class="iconesCommentaire buttonSignaler">
-								Signaler
+							<span id="<?= $commentaire['id'];?>" class="iconesCommentaire boutonSignaler">
+								<i class="fas fa-minus-circle"></i>
 							</span>
 						<?php endif ?>
 						<?php if(isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') : ?>
-							<a class="iconesCommentaire" href="http://localhost/projet4/index.php?action=supprimerCommentaire&amp;id=<?= $commentaire['id']?>&article=<?= $article['id'];?>">
-								Supprimer
+							<a class="iconesCommentaire boutonSupprimer" href="http://localhost/projet4/index.php?action=supprimerCommentaire&amp;id=<?= $commentaire['id']?>&article=<?= $article['id'];?>">
+								<i class="far fa-trash-alt"></i>
 							</a>
 						<?php endif ?>
 						<br />
