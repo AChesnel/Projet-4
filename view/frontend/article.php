@@ -63,7 +63,7 @@
 							
 						}).done(function(msg) {
   							
-  									$('#message').html(msg);
+  									alert(msg);
   						});
 		})
 	</script>

@@ -128,8 +128,6 @@ class FrontendArticles {
 		$comment_id   = $_POST['comment_id'];
 		$user_report  = $_SESSION['username'];
 
-		echo $comment_id;
-
 		$manager = new ArticleManager();
 
 		$verificationReport = $manager->isCommentReportExists($comment_id, $user_report);
