@@ -21,15 +21,27 @@ class ArticleManager {
 	    $this->db = $db;
 	}
 
-	public function getArticles() {
+	public function getArticles($depart, $articleParPage) {
 		 $db = $this->db;
 
-	    $req = $db->prepare('SELECT id, title, content, creation_date FROM posts ORDER BY creation_date ASC LIMIT 0, 5');
+	    $req = $db->prepare('SELECT id, title, content, creation_date FROM posts ORDER BY creation_date ASC LIMIT '.$depart.', '.$articleParPage.'');
 	    $req->execute();
 
 	    $datas = $req->fetchAll(PDO::FETCH_ASSOC); 
 
 	    return $datas;
+	}
+
+	public function combienDArticles() {
+		$db = $this->db;
+
+		$req = $db->prepare('SELECT id FROM posts');
+		$req->execute();
+
+		$datas = $req->fetchAll(PDO::FETCH_ASSOC); 
+		$nombreTotalArticle = count($datas);
+
+	    return $nombreTotalArticle;
 	}
 
 	public function getArticle($id) {

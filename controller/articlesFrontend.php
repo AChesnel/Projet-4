@@ -13,8 +13,30 @@ class FrontendArticles {
 	public function displayArticles()
 	{
 		$manager =new ArticleManager();
-		$articles = $manager->getArticles();
 
+		$articleParPage = 5;
+		$nombreDArticles = $manager->combienDArticles();
+
+		if(isset($_GET['page']) AND !empty($_GET['page'])) {
+			$_GET['page'] = intval($_GET['page']);
+			$pageActuelle = $_GET['page'];
+		} else {
+			$pageActuelle = 1;
+		}
+		
+		$nextPage = $pageActuelle + 1;
+		$previousPage = $pageActuelle -1;
+
+		$maxPage = $nombreDArticles / $articleParPage;
+		$maxPage = ceil($maxPage);
+
+		if($nextPage > $maxPage) {
+			$nextPage = $maxPage;
+		}
+
+		$depart = ($pageActuelle-1)*$articleParPage;
+
+		$articles = $manager->getArticles($depart, $articleParPage);
 
 		require ('view/frontend/pageArticles.php');
 	}

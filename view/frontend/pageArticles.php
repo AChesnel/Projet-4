@@ -11,7 +11,9 @@
 			    	<?= htmlspecialchars($article['title']) ?>
 			    </a> <br />
 			 <?php endforeach;?> 
-	 	</div> 
+	 	</div>
+	 	<a href="http://localhost/projet4/index.php?action=pageArticles&page=<?= $previousPage?>">Page Précédente</a>
+	 	<a href="http://localhost/projet4/index.php?action=pageArticles&page=<?= $nextPage ?>">Page suivante</a>
 </div>
 
 <?php include('footer.php');?>
