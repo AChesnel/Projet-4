@@ -52,7 +52,7 @@
 	</div>
 
 	<script type="text/javascript">
-		$('.buttonSignaler').click(function() {
+		$('.boutonSignaler').click(function() {
 			
 				let id = $(this).attr('id');	
 
