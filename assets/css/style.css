@@ -297,3 +297,13 @@ footer {
 	line-height: 100px;
 	text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+	#blocCommentaires {
+		width: 90%;
+	}
+
+@media screen and (max-width: 456px) {
+	#logoPrincipal {
+		display: none;
+	}
