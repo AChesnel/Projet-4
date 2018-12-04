@@ -10,8 +10,8 @@
 		<div id="blocArticle">
 		        <?= ($article['content']) ?>
 		        <div id="dateArticle">Écrit le : <?= htmlspecialchars($article['creation_date_fr']) ?></div>
-		        <a href="http://localhost/projet4/index.php?action=article&id=<?= $previousID?>">Page précédente</a>
-		        <a href="http://localhost/projet4/index.php?action=article&id=<?= $nextID ?>">Page suivante</a>
+		        <a class="pagePrecedente" href="http://localhost/projet4/index.php?action=article&id=<?= $previousID?>"><i class="fas fa-arrow-alt-circle-left"></i> Page précédente</a>
+		        <a class="pageSuivante" href="http://localhost/projet4/index.php?action=article&id=<?= $nextID ?>">Page suivante <i class="fas fa-arrow-alt-circle-right"></i></a>
 		</div>
 		<h2>Commentaires</h2>
 		<div id="blocCommentaires">

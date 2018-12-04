@@ -195,6 +195,15 @@ nav {
 	margin-bottom: 25px;
 }
 
+#ajoutArticle {
+	text-decoration: none;
+	color: black;
+}
+
+.fa-plus-circle {
+	color: #82c91e;
+}
+
 #bulleArticle {
 	width: 90%;
 	margin: 0 auto;
@@ -206,9 +215,17 @@ nav {
 }
 
 #titrePageArticle {
-	font-size: 18px;
+	font-size: 21px;
 	font-weight: bold;
 	margin-bottom: 10px;
+	color: #15aabf;
+	text-decoration: underline black;
+}
+
+.pagePrecedente, .pageSuivante {
+	text-decoration: none;
+	color: black;
+	margin: 15px;
 }
 
 #envoyerArticle {
