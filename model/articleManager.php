@@ -67,6 +67,16 @@ class ArticleManager {
 	    return $article;
 	}
 
+	public function selectDernierArticle() {
+		$db = $this->db;
+
+		$req = $db->prepare('SELECT * FROM posts ORDER BY id DESC LIMIT 1');
+		$req->execute();
+
+		$data = $req->fetch(PDO::FETCH_ASSOC);
+		return $data;
+	}
+
 	public function deleteArticle($id) {
 		$db = $this->db;
 

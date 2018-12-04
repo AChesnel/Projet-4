@@ -7,6 +7,10 @@ class FrontendArticles {
 
 	public function displayHome()
 	{
+		$manager =new ArticleManager();
+
+		$dernierArticle = $manager->selectDernierArticle();
+
 		require ('view/frontend/home.php');
 	}
 

@@ -99,6 +99,7 @@ nav {
 	padding-top: 40px;
 	font-family: Daisy Script, arial;
 	font-size: 65px;
+	font-weight: normal;
 }
 
 #texteAccueil {
@@ -113,6 +114,32 @@ nav {
 .paragraphe {
 	margin-bottom: 20px;
 	display: block;
+}
+
+#dernierArticle {
+	padding-top: 40px;
+	font-family: Daisy Script, arial;
+	font-size: 65px;
+	font-weight: normal;
+	text-decoration: under
+}
+
+#trait {
+	width: 90%;
+	border-bottom: 3px dotted black;
+	margin: 0 auto;
+}
+
+#titreDernierArticle {
+	font-size: 23px;
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
+
+#blocDernierArticle {
+	font-family: Poly, arial !important;
+	width: 90%;
+	margin: 0 auto;
 }
 
 #blocConnexion {
