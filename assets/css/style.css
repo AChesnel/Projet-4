@@ -195,6 +195,20 @@ nav {
 	margin-bottom: 25px;
 }
 
+#bulleArticle {
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	margin-top: 15px;
+	border: 1px black ridge;
+	border-radius: 30px;
+	padding: 8px;
+}
+
+#titrePageArticle {
+	font-size: 18px;
+}
+
 #envoyerArticle {
 	margin-top: 15px;
 }

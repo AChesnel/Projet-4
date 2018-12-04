@@ -36,7 +36,7 @@ class FrontendArticles {
 
 		$depart = ($pageActuelle-1)*$articleParPage;
 
-		$articles = $manager->getArticles($depart, $articleParPage);
+		$articles = $manager->getArticlesPagination($depart, $articleParPage);
 
 		require ('view/frontend/pageArticles.php');
 	}
@@ -55,6 +55,19 @@ class FrontendArticles {
 				$order_by = ' id desc ';
 			}
 			$comments = $manager->getComments($_GET['id'], $order_by);
+
+			$articleID = $article['id'];
+			$previousID = $articleID - 1;
+			$nextID = $articleID +1;
+
+			$minID = 1;
+			$maxID = $manager->combienDArticles();
+
+			if ($articleID == $maxID) {
+				$nextID = $maxID;
+			} elseif ($articleID == $minID) {
+				$previousID = $minID;
+			}
 
 			require ('view/frontend/article.php');
 
