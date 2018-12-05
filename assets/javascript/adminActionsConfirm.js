@@ -1,3 +1,3 @@
 $('.adminPower').on('click', function () {
-	return confirm('voulez-vous vraiment exécuter cette action ?');
+	return confirm('Voulez-vous vraiment exécuter cette action ?');
 });
