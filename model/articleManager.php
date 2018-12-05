@@ -24,7 +24,7 @@ class ArticleManager {
 	public function getArticles() {
 		 $db = $this->db;
 
-	    $req = $db->prepare('SELECT id, title, content, creation_date FROM posts ORDER BY creation_date');
+	    $req = $db->prepare('SELECT id, title, content, creation_date FROM posts ORDER BY publish_date');
 	    $req->execute();
 
 	    $datas = $req->fetchAll(PDO::FETCH_ASSOC); 
@@ -35,7 +35,7 @@ class ArticleManager {
 	public function getArticlesPagination($depart, $articleParPage) {
 		 $db = $this->db;
 
-	    $req = $db->prepare('SELECT id, title, content, creation_date FROM posts ORDER BY creation_date ASC LIMIT '.$depart.', '.$articleParPage.'');
+	    $req = $db->prepare('SELECT id, title, content, creation_date FROM posts ORDER BY publish_date ASC LIMIT '.$depart.', '.$articleParPage.'');
 	    $req->execute();
 
 	    $datas = $req->fetchAll(PDO::FETCH_ASSOC); 
@@ -70,7 +70,7 @@ class ArticleManager {
 	public function selectDernierArticle() {
 		$db = $this->db;
 
-		$req = $db->prepare('SELECT * FROM posts ORDER BY id DESC LIMIT 1');
+		$req = $db->prepare('SELECT * FROM posts ORDER BY publish_date DESC LIMIT 1');
 		$req->execute();
 
 		$data = $req->fetch(PDO::FETCH_ASSOC);
