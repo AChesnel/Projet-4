@@ -20,17 +20,17 @@
 				
 				<?php if($utilisateur['role'] === "banni") : ?>
 					<td>
-						<a class="adminPower" href="http://localhost/projet4/index.php?action=rehabiliterUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Réhabiliter</a>
+						<a class="adminPower" href="http://localhost/projet4/index.php?action=rehabiliterUtilisateur&amp;id=<?= $utilisateur['id'] ?>"><i class="fas fa-check-circle"></i></a>
 					</td>
 				<?php endif;?>
 				<?php if($utilisateur['role'] === "user") : ?>
 					<td>
-						<a class="adminPower" href="http://localhost/projet4/index.php?action=bannirUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Bannir</a>
+						<a class="adminPower" href="http://localhost/projet4/index.php?action=bannirUtilisateur&amp;id=<?= $utilisateur['id'] ?>"><i class="fas fa-times-circle"></i></a>
 					</td>
 				<?php endif;?>
 				
 				<?php if($utilisateur['role'] != "admin") : ?>
-					<td><a class="adminPower" href="http://localhost/projet4/index.php?action=supprimerUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Supprimer</a></td>
+					<td><a class="adminPower" href="http://localhost/projet4/index.php?action=supprimerUtilisateur&amp;id=<?= $utilisateur['id'] ?>"><i class="far fa-trash-alt"></i></a></td>
 				<?php endif;?>
 
 			</tr>
