@@ -58,18 +58,22 @@ class UserManager {
 
     	$user = $this->getUserByUsername($values['identifiant']);
     	if($user) {
-    		return "Nom d'utilisateur déjà existant";
+    		$message = "Nom d'utilisateur déjà existant";
+
     	} 
 
     	$user = $this->getUserByEmail($values['email']);
     	if($user) {
-    		return "E-mail déjà existant";
+    		$message = "E-mail déjà existant";
     	}
 
     	if ($values['password'] != $values['confirm']) {
-    		return "Les mots de passe ne sont pas identiques";
+    		$message = "Les mots de passe ne sont pas identiques";
     	}
-
+    	if (isset($message)) {
+    		$_SESSION['message'] = $message;
+    		return false;
+    	}
     	return true;
     }
 

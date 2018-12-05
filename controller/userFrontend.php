@@ -66,7 +66,7 @@ class FrontendUser {
 			$compte = $manager->addAccount($identifiant, $password, $prénom, $nom, $email);
 			require('view/frontend/connexion.php');
 		} else {
-			echo $validation;
+			header("location:index.php?action=nouveauCompte");
 		}
 	}
 
