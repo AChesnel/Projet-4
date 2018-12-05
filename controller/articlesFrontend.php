@@ -114,7 +114,7 @@ class FrontendArticles {
 		$manager =new ArticleManager();
 		$article = $manager->deleteArticle($_GET['id']);
 
-		require('view/frontend/articleSupprimeConfirme.php');
+		header('location:index.php?action=gestionArticles');
 	}
 
 	public function ajouterArticle()

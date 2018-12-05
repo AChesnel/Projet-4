@@ -88,7 +88,7 @@ class FrontendUser {
 		$manager = new UserManager();
 		$utilisateur = $manager->deleteUser($_GET['id']);
 
-		require('view/frontend/utilisateurSupprimeConfirme.php');
+		header('location:index.php?action=gestionUtilisateurs');
 	}
 
 	public function bannirUtilisateur()
@@ -96,7 +96,7 @@ class FrontendUser {
 		$manager = new UserManager();
 		$utilisateur = $manager->banUser($_GET['id']);
 
-		require('view/frontend/utilisateurbanniConfirme.php');
+		header('location:index.php?action=gestionUtilisateurs');
 	}
 
 	public function rehabiliterUtilisateur()
@@ -104,7 +104,7 @@ class FrontendUser {
 		$manager = new UserManager();
 		$utilisateur = $manager->unBanUser($_GET['id']);
 
-		require('view/frontend/utilisateurUnBanConfirme.php');
+		header('location:index.php?action=gestionUtilisateurs');
 	}
 
 	public function mentionsLegales()
