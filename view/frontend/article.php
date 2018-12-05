@@ -16,12 +16,14 @@
 		<h2>Commentaires</h2>
 		<div id="blocCommentaires">
 
-			<?php if(isset($_SESSION['logged']) === true) : ?>
+			<?php if(isset($_SESSION['role']) && ($_SESSION['role']) === 'banni'): ?>
+				Votre compte est suspendu, vous ne pouvez plus envoyer de commentaires.
+			<?php elseif(isset($_SESSION['logged']) === true) : ?>
 				<form action="index.php?action=envoyerCommentaire&amp;id=<?= $article['id'] ?>" method="post">
 					<textarea name="commentaire" required="required"></textarea>
 					<input type="submit" />
 				</form>
-			<?php else : ?>
+			<?php elseif(isset($_SESSION['logged']) != true) : ?>
 				Veuillez vous connecter, ou vous inscrire pour pouvoir écrire un commentaire.
 			<?php endif ?>
 			<div id="listeCommentaires">
