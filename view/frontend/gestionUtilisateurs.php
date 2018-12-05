@@ -1,13 +1,13 @@
 <?php include('header.php');?>
 <div id="blocSite">
-	<table id="liste" align="center">
+	<table class="liste">
 		<caption id="titreListeTableau">Liste des utilisateurs</caption>
 		<tr>
 			<th>Utilisateur</th>
 			<th>E-mail</th>
 			<th>Nom</th>
-			<th>Prénom</th>
-			<th>Rôle</th>
+			<th>Prenom</th>
+			<th>Role</th>
 		</tr>
 		<?php  foreach ($utilisateurs as $utilisateur) :?>
 
@@ -20,17 +20,17 @@
 				
 				<?php if($utilisateur['role'] === "banni") : ?>
 					<td>
-						<a href="http://localhost/projet4/index.php?action=rehabiliterUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Réhabiliter</a>
+						<a class="adminPower" href="http://localhost/projet4/index.php?action=rehabiliterUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Réhabiliter</a>
 					</td>
 				<?php endif;?>
 				<?php if($utilisateur['role'] === "user") : ?>
 					<td>
-						<a href="http://localhost/projet4/index.php?action=bannirUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Bannir</a>
+						<a class="adminPower" href="http://localhost/projet4/index.php?action=bannirUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Bannir</a>
 					</td>
 				<?php endif;?>
 				
 				<?php if($utilisateur['role'] != "admin") : ?>
-					<td><a href="http://localhost/projet4/index.php?action=supprimerUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Supprimer</a></td>
+					<td><a class="adminPower" href="http://localhost/projet4/index.php?action=supprimerUtilisateur&amp;id=<?= $utilisateur['id'] ?>">Supprimer</a></td>
 				<?php endif;?>
 
 			</tr>
@@ -38,3 +38,4 @@
 	<?php endforeach;?> 
 	</table>
 </div>
+<?php include('footer.php');?>

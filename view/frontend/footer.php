@@ -4,4 +4,5 @@
 </body>
 
 <script src="assets/javascript/footer.js"></script>
+<script src="assets/javascript/adminActionsConfirm.js"></script>
 </html>

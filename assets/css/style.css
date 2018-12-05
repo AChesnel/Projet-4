@@ -214,8 +214,9 @@ nav {
 	margin-top: 5px;
 }
 
-#liste {
+.liste {
 	border-collapse: collapse;
+	margin: 0 auto;
 }
 
 #titreListeTableau {
