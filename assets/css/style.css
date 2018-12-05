@@ -201,6 +201,10 @@ nav {
 	background-color: #120fb4e6;
 }
 
+#messageErreurCompte {
+	color: red;
+}
+
 .blank {
 	display: none;
 }
