@@ -55,12 +55,32 @@ class ArticleManager {
 	    return $nombreTotalArticle;
 	}
 
+	public function getArticlePrecedent($articleActuel) {
+		$db = $this->db;
+
+		$req = $db->prepare('SELECT * FROM posts WHERE publish_date < ? ORDER BY publish_date DESC LIMIT 1;');
+		 $req->execute(array($articleActuel));
+
+	    $articlePrecedent = $req->fetch(PDO::FETCH_ASSOC); 
+	    return $articlePrecedent;
+	}
+
+	public function getArticleSuivant($articleActuel) {
+		$db = $this->db;
+
+		$req = $db->prepare('SELECT * FROM posts WHERE publish_date > ? ORDER BY publish_date ASC LIMIT 1;');
+		 $req->execute(array($articleActuel));
+
+	    $articleSuivant = $req->fetch(PDO::FETCH_ASSOC); 
+	    return $articleSuivant;
+	}
+
 	public function getArticle($id) {
 
 		$article = null;
 		 $db = $this->db;
 
-	    $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE id = ?');
+	    $req = $db->prepare('SELECT id, title, content, publish_date, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE id = ?');
 	    $req->execute(array($id));
 
 	    $article = $req->fetch(PDO::FETCH_ASSOC); 
