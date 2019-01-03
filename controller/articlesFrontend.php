@@ -1,7 +1,6 @@
 <?php
 
 require('model/articleManager.php');
-require('model/commentaireManager.php');
 
 class FrontendArticles {
 
