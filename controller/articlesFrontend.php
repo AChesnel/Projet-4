@@ -60,18 +60,17 @@ class FrontendArticles {
 			}
 			$comments = $manager->getComments($_GET['id'], $order_by);
 
-			$articleID = $article['id'];
-			$previousID = $articleID - 1;
-			$nextID = $articleID +1;
+			/* --- On souhaite récupérer l'article suivant et précédent selon la date de publication de l'article. --- */
 
-			$minID = 1;
-			$maxID = $manager->combienDArticles();
 
-			if ($articleID == $maxID) {
-				$nextID = $maxID;
-			} elseif ($articleID == $minID) {
-				$previousID = $minID;
-			}
+			$maxArticles = $manager->combienDArticles();
+
+			$listeArticle = $manager->getArticles();
+
+			$articleActuel = $article['publish_date'];
+
+			$articlePrecedent = $manager->getArticlePrecedent($articleActuel);
+			$articleSuivant = $manager->getArticleSuivant($articleActuel);
 
 			require ('view/frontend/article.php');
 

@@ -10,8 +10,18 @@
 		<div id="blocArticle">
 		        <?= ($article['content']) ?>
 		        <div id="dateArticle">Écrit le : <?= htmlspecialchars($article['creation_date_fr']) ?></div>
-		        <a class="pagePrecedente" href="http://localhost/projet4/index.php?action=article&id=<?= $previousID?>"><i class="fas fa-arrow-alt-circle-left"></i> Page précédente</a>
-		        <a class="pageSuivante" href="http://localhost/projet4/index.php?action=article&id=<?= $nextID ?>">Page suivante <i class="fas fa-arrow-alt-circle-right"></i></a>
+		        <?php if ($articlePrecedent) : ?>
+		  			<a class="pagePrecedente" href="http://localhost/projet4/index.php?action=article&id=<?= $articlePrecedent['id']?>&direction=precedent">
+			        	<i class="fas fa-arrow-alt-circle-left"></i>
+			        	Page précédente
+			        </a>
+		   		<?php endif ?>
+				<?php if ($articleSuivant) : ?>
+			        <a class="pageSuivante" href="http://localhost/projet4/index.php?action=article&id=<?= $articleSuivant['id']?>&direction=suivant">
+			        	Page suivante 
+			        	<i class="fas fa-arrow-alt-circle-right"></i>
+			        </a>
+			    <?php endif ?>
 		</div>
 		<h2>Commentaires</h2>
 		<div id="blocCommentaires">
