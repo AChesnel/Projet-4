@@ -1,5 +1,9 @@
- @import url(http://fr.allfont.net/allfont.css?fonts=daisy-script);
+ /*@import url(http://fr.allfont.net/allfont.css?fonts=daisy-script);*/
 
+@font-face {
+font-family: "Daisy Script";
+    src: url('fonts/daisy-script.ttf');
+}
 *{
 	margin: 0;
 	padding: 0;
@@ -223,6 +227,10 @@ nav {
 	margin: 0 auto;
 }
 
+.tmid {
+	text-align: center;
+}
+
 #titreListeTableau {
 	margin-bottom: 10px;
 }
@@ -287,7 +295,7 @@ nav {
 #overlayImgArticle {
 	height: 50px;
 	background-color: rgba(26, 26, 26,0.7);
-	top: -54px;
+	top: -70px;
 	width: 100%;
 	color: white;
 	position: relative;
@@ -339,6 +347,19 @@ nav {
 	text-decoration: none;
 }
 
+.trMid {
+	text-align: center;
+}
+
+#cercleNotif {
+  height: 21px;
+  width: 21px;
+  background-color: #f64242;
+  border-radius: 50%;
+  display: inline-block;
+  color: white;
+}
+
 .boutonSupprimer {
 	color: grey;
 }
@@ -365,6 +386,11 @@ footer {
 	line-height: 100px;
 	text-align: center;
 }
+
+@media screen and (max-width: 650px) {
+	footer {
+		display: none;
+	}
 
 @media screen and (max-width: 600px) {
 	#blocCommentaires {

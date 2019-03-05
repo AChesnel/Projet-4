@@ -11,13 +11,13 @@
 		        <?= ($article['content']) ?>
 		        <div id="dateArticle">Écrit le : <?= htmlspecialchars($article['creation_date_fr']) ?></div>
 		        <?php if ($articlePrecedent) : ?>
-		  			<a class="pagePrecedente" href="http://localhost/projet4/index.php?action=article&id=<?= $articlePrecedent['id']?>&direction=precedent">
+		  			<a class="pagePrecedente" href="http://projet1.achesnel.fr/projet4/index.php?action=article&id=<?= $articlePrecedent['id']?>&direction=precedent">
 			        	<i class="fas fa-arrow-alt-circle-left"></i>
 			        	Page précédente
 			        </a>
 		   		<?php endif ?>
 				<?php if ($articleSuivant) : ?>
-			        <a class="pageSuivante" href="http://localhost/projet4/index.php?action=article&id=<?= $articleSuivant['id']?>&direction=suivant">
+			        <a class="pageSuivante" href="http://projet1.achesnel.fr/projet4/index.php?action=article&id=<?= $articleSuivant['id']?>&direction=suivant">
 			        	Page suivante 
 			        	<i class="fas fa-arrow-alt-circle-right"></i>
 			        </a>
@@ -38,6 +38,7 @@
 			<?php endif ?>
 			<div id="listeCommentaires">
 				<?php foreach ($comments as $commentaire) :?>
+					
 					<div class="commentaire">
 						Commentaire de
 						<span class="auteurCommentaire">
@@ -49,7 +50,7 @@
 							</span>
 						<?php endif ?>
 						<?php if(isset($_SESSION['role']) && ($_SESSION['role']) === 'admin') : ?>
-							<a class="iconesCommentaire boutonSupprimer" href="http://localhost/projet4/index.php?action=supprimerCommentaire&amp;id=<?= $commentaire['id']?>&article=<?= $article['id'];?>">
+							<a class="iconesCommentaire boutonSupprimer" href="http://projet1.achesnel.fr/projet4/index.php?action=supprimerCommentaire&amp;id=<?= $commentaire['id']?>&article=<?= $article['id'];?>">
 								<i class="far fa-trash-alt"></i>
 							</a>
 						<?php endif ?>
@@ -72,7 +73,7 @@
 
 				$.ajax({
   							method : "POST",
-  							url: "http://localhost/projet4/index.php?action=signalerCommentaire",
+  							url: "http://projet1.achesnel.fr/projet4/index.php?action=signalerCommentaire",
   							data: { comment_id: id }
 							
 						}).done(function(msg) {

@@ -12,7 +12,7 @@ class ArticleManager {
 	public function __construct() {
 		 try
 	    {           
-	     	$db = new PDO('mysql:host=localhost;dbname=projet4;charset=utf8', 'root', '');
+	     	$db = new PDO('mysql:host=achesnelrtachesn.mysql.db;dbname=achesnelrtachesn;charset=utf8', 'achesnelrtachesn', '28564Stread');
 	    }
 	    catch(Exception $e)
 	    {
@@ -109,7 +109,9 @@ class ArticleManager {
 	public function publishArticle($title, $content) {
 		$db = $this->db;
 
-		$req = $db->prepare("INSERT INTO `posts` (`id`, `title`, `content`, `creation_date`) VALUES (NULL, ?, ?, NOW());");
+		$req = $db->prepare("    INSERT INTO posts (id, title, content, creation_date, publish_date)
+		                                            VALUES (NULL, ?, ?, NOW(), NOW() )
+		                    ;");
 		$req->execute(array($title, $content));
 		$article = $req->fetch(PDO::FETCH_ASSOC);
 		return $article;
@@ -121,13 +123,36 @@ class ArticleManager {
 	    $db = $this->db;
 
 
-	    $req = $db->prepare('SELECT id, comment, author, signalement, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = :post_id ORDER BY '. $order_by);
+	    $req = $db->prepare('SELECT id, comment, author, signalement, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = :post_id AND signalement = 0 ORDER BY '. $order_by);
 	    $req->bindValue(':post_id', $post_id, PDO::PARAM_INT);
 	    $req->execute();
 	    $comments = $req->fetchAll(PDO::FETCH_ASSOC);
 
 
 	    return $comments;
+	}
+
+	public function getReportedComments()
+	{
+		$db = $this->db;
+
+		$req = $db->prepare('SELECT id, comment, author, signalement, post_id FROM comments WHERE signalement != 0');
+		$req->execute();
+	    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+
+	    return $datas;
+	}
+
+	public function nbReportedComments()
+	{
+		$db = $this->db;
+
+		$req = $db->prepare('SELECT id, comment, author, signalement, post_id FROM comments WHERE signalement != 0');
+		$req->execute();
+	    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+
+	    $nbReports = count($datas);
+	    return $nbReports;
 	}
 
 	
@@ -176,35 +201,16 @@ class ArticleManager {
 	{
 		$db = $this->db;
 
-		$req = $db->prepare('UPDATE comments SET signalement = signalement + 1 WHERE comments . id = ?');
+		$req = $db->prepare('UPDATE comments SET signalement = 1 WHERE comments . id = ?');
 		$req->execute(array($id));
 	}
 
-	public function insertReport($id, $user_report)
+	public function isCommentReportExists($id)
 	{
 		$db = $this->db;
 
-		$query = "INSERT INTO comments_reported SET 
-													comment_id     = :id,
-													user_report    = :user_report";
-													
-		$req = $db->prepare($query);
-		$req->bindValue(':id', $id, PDO::PARAM_INT);
-		$req->bindValue(':user_report', $user_report, PDO::PARAM_STR);
-		$req->execute();
-	}
-
-	/**
-	* Check if in comments_reported exists
-	*@param $comment_id, $user_report
-	*@return boolean
-	*/
-	public function isCommentReportExists($id, $user_report)
-	{
-		$db = $this->db;
-
-		$req = $db->prepare("SELECT * FROM comments_reported WHERE comment_id = :id AND user_report = :user_report");
-		$req->execute(array(':id' => $id, ':user_report' => $user_report));
+		$req = $db->prepare("SELECT * FROM comments WHERE id = :id AND approbation = 1");
+		$req->execute(array(':id' => $id));
 
 		$checkResult = $req->fetch(PDO::FETCH_ASSOC); 
 
@@ -213,6 +219,14 @@ class ArticleManager {
 		} else {
 			return false;
 		}
+	}
+
+	public function aproveComment($id)
+	{
+		$db = $this->db;
+
+		$req = $db->prepare('UPDATE comments SET signalement = 0, approbation = 1 WHERE comments . id = ?');
+		$req->execute(array($id));
 	}
 
 }

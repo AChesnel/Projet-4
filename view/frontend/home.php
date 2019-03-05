@@ -23,7 +23,7 @@
 		<div id="trait"></div>
 		<div id="blocDernierArticle">
 			<div id="titreDernierArticle"><?= ($dernierArticle['title']); ?></div>
-			<?= (substr($dernierArticle['content'], 493,400)) ?> <a href="http://localhost/projet4/index.php?action=article&amp;id=<?= $dernierArticle['id'] ?>">Lire la suite...</a>
+			<?= (substr($dernierArticle['content'], 493,400)) ?> <a href="http://projet1.achesnel.fr/projet4/index.php?action=article&amp;id=<?= $dernierArticle['id'] ?>">Lire la suite...</a>
 		</div>
 	</div>
 </div>

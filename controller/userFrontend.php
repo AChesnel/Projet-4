@@ -37,7 +37,7 @@ class FrontendUser {
 					$_SESSION['logged'] = true;
 					$_SESSION['role'] = $user['role'];
 					$_SESSION['username'] = $user['username'];
-					require ('view/frontend/home.php');
+					header ('location: index.php');
 				}
 		       return 'Utilisateur ou mot de passe incorrect';
 			}
@@ -68,11 +68,6 @@ class FrontendUser {
 		} else {
 			header("location:index.php?action=nouveauCompte");
 		}
-	}
-
-	public function espaceAdmin()
-	{
-		require ('view/frontend/espaceAdmin.php');
 	}
 	
 		public function gestionUtilisateurs()

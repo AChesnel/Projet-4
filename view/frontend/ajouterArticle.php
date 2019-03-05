@@ -7,5 +7,10 @@
 		<textarea name="content" class="articleTiny"></textarea>
 		<input type="submit" id="envoyerArticle">
 	</form>
-	
 </div>
+
+<script type="text/javascript">
+    tinyMCE.init({
+      mode : "textareas"
+    });
+</script>

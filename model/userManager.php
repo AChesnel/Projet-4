@@ -9,7 +9,7 @@ class UserManager {
 	public function __construct() {
 		 try
 	    {           
-	     	$db = new PDO('mysql:host=localhost;dbname=projet4;charset=utf8', 'root', '');
+	     	$db = new PDO('mysql:host=achesnelrtachesn.mysql.db;dbname=achesnelrtachesn;charset=utf8', 'achesnelrtachesn', '28564Stread');
 	    }
 	    catch(Exception $e)
 	    {

@@ -78,9 +78,17 @@ class FrontendArticles {
 		}
 	}
 
+	public function espaceAdmin()
+	{
+		$manager = new ArticleManager();
+		$reportedComments = $manager->nbReportedComments();
+
+		require ('view/frontend/espaceAdmin.php');
+	}
+
 	public function gestionArticles()
 	{
-		$manager =new ArticleManager();
+		$manager  = new ArticleManager();
 		$articles = $manager->getArticles();
 
 		require('view/frontend/gestionArticles.php');
@@ -128,7 +136,7 @@ class FrontendArticles {
 		$content = $_POST['content'];
 
 		$article = $manager->publishArticle($title, $content);
-		require ('view/frontend/espaceAdmin.php');
+		header('location: index.php?action=pageArticles');
 	}
 
 		public function envoyerCommentaire()
@@ -163,24 +171,40 @@ class FrontendArticles {
 	{
 
 		$comment_id   = $_POST['comment_id'];
-		$user_report  = $_SESSION['username'];
 
 		$manager = new ArticleManager();
 
-		$verificationReport = $manager->isCommentReportExists($comment_id, $user_report);
+		$verificationReport = $manager->isCommentReportExists($comment_id);
 
 		if($verificationReport === true) {
-			echo "Vous avez déjà signalé ce commentaire";
+			echo "Ce commentaire a déjà été approuvé par un administrateur";
 		} else {
 			$reportComment = $manager->reportComment($comment_id);
-			$insertReport  = $manager->insertReport($comment_id, $user_report);
+			echo "Commentaire signalé";
 		}
+	}
 
-		exit;
-		
+	public function gestionCommentaires()
+	{
+		$manager =new ArticleManager();
+		$reportedComments = $manager->getReportedComments();
 
-		$article = $manager->getArticle($_GET['article']);
-		$post_id = $article['id'];
-		header('Location: index.php?action=article&id=' . $post_id);
+		require('view/frontend/gestionCommentaires.php');
+	}
+
+	public function supprimerCommentaireAdmin()
+	{
+		$manager = new ArticleManager();
+		$comment = $manager->deleteComment($_GET['id']);
+
+		header('Location: index.php?action=gestionCommentaires');
+	}
+
+	public function approuverCommentaire()
+	{
+		$manager = new ArticleManager();
+
+		$comment = $manager->aproveComment($_GET['id']);
+		header('Location: index.php?action=gestionCommentaires');
 	}
 }

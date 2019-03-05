@@ -10,7 +10,7 @@
 				<input type="submit" class="elementForm boutonEnvoyer">
 			</form>
 			
-			<a href="http://localhost/projet4/index.php?action=nouveauCompte">Créer un compte</a>
+			<a href="http://projet1.achesnel.fr/projet4/index.php?action=nouveauCompte">Créer un compte</a>
 		</div>
 	</div>
 </div>
